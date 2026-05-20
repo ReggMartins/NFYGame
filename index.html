@@ -27,7 +27,13 @@
 
         <!-- 3. O JOGO AO CENTRO -->
         <div class="game-container">
-            <iframe style="height: 320px; width: 480px;" src="https://play.gamepix.com/strike-galaxy-attack/embed?sid=911Y9" width="480" height="320" frameborder="0" scrolling="no"></iframe>
+            
+            <iframe src="https://play.gamepix.com/strike-galaxy-attack/embed?sid=911Y9" width="800" height="600" frameborder="0" scrolling="no" allowfullscreen="true" > </iframe>
+            
+            <center>
+                <button id="btnTelaCheia" onclick="abrirTelaCheia()">🔲 Jogar em Tela Cheia</button>
+            </center>
+
         </div>
 
         <!-- 4. ANÚNCIO LATERAL DIREITA -->
@@ -41,6 +47,23 @@
         </div>
 
     </div>
+
+
+<script>
+    function abrirTelaCheia() {
+        // Seleciona o iframe do jogo
+        var jogo = document.querySelector("iframe");
+
+        // Tenta abrir em tela cheia lidando com os diferentes navegadores
+        if (jogo.requestFullscreen) {
+            jogo.requestFullscreen(); // Padrão moderno
+        } else if (jogo.webkitRequestFullscreen) { 
+            jogo.webkitRequestFullscreen(); // Safari e Chrome antigos
+        } else if (jogo.msRequestFullscreen) { 
+            jogo.msRequestFullscreen(); // Internet Explorer/Edge antigos
+        }
+    }
+</script>
 
 </body>
 </html>
