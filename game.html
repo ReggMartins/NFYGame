@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css\style.css">
+    <title>NFY Games</title>
+    
+
+</head>
+<body>
+
+     <!-- CABEÇALHO -->
+    <header>
+        <!-- Troque logo.png pelo nome do arquivo do seu logotipo -->
+        <img src="img\nfy.png" width="120" height="80" alt="NFY Games Logo">
+        
+    </header>
+
+    <div class="layout-grid">
+        
+        <!-- 1. ANÚNCIO DO TOPO -->
+        <div class="ad-container ad-top">
+            <!-- Cole o código <script> do AdSense ou da plataforma aqui -->
+            Anúncio Topo<br>(728 x 90)
+        </div>
+
+        <!-- 2. ANÚNCIO LATERAL ESQUERDA -->
+        <div class="ad-container ad-left">
+            Anúncio Esquerda<br>(160 x 600)
+        </div>
+
+        <!-- 3. O JOGO AO CENTRO -->
+        <div class="game-container">
+            
+            <iframe src="https://play.gamepix.com/strike-galaxy-attack/embed?sid=911Y9" width="800" height="600" frameborder="0" scrolling="no" allowfullscreen="true" > </iframe>
+            
+            <center>
+                <button id="btnTelaCheia" onclick="abrirTelaCheia()">🔲 Jogar em Tela Cheia</button>
+            </center>
+
+        </div>
+
+        <!-- 4. ANÚNCIO LATERAL DIREITA -->
+        <div class="ad-container ad-right">
+            Anúncio Direita<br>(160 x 600)
+        </div>
+
+        <!-- 5. ANÚNCIO DO FUNDO -->
+        <div class="ad-container ad-bottom">
+            Anúncio Fundo<br>(728 x 90)
+        </div>
+
+    </div>
+
+
+<script>
+    function abrirTelaCheia() {
+        // Seleciona o iframe do jogo
+        var jogo = document.querySelector("iframe");
+
+        // Tenta abrir em tela cheia lidando com os diferentes navegadores
+        if (jogo.requestFullscreen) {
+            jogo.requestFullscreen(); // Padrão moderno
+        } else if (jogo.webkitRequestFullscreen) { 
+            jogo.webkitRequestFullscreen(); // Safari e Chrome antigos
+        } else if (jogo.msRequestFullscreen) { 
+            jogo.msRequestFullscreen(); // Internet Explorer/Edge antigos
+        }
+    }
+</script>
+
+
+<script>
+    // 1. Banco de dados simples com os links dos jogos (iframes)
+    const linksDosJogos = {
+        "strike": "https://play.gamepix.com/strike-galaxy-attack/embed?sid=911Y9",
+        "tiro": "https://link-da-plataforma.com/jogo-de-tiro",
+        "meujogo2d": "https://meuservidor.com/build-do-meu-jogo",
+        "puzzle": "https://link-da-plataforma.com/jogo-de-puzzle"
+    };
+
+    // 2. Descobre qual ID foi clicado lá na página principal
+    const parametros = new URLSearchParams(window.location.search);
+    const jogoSelecionado = parametros.get("id");
+
+    // 3. Troca o link do iframe automaticamente
+    const iframeDoJogo = document.querySelector("iframe");
+    
+    if (linksDosJogos[jogoSelecionado]) {
+        iframeDoJogo.src = linksDosJogos[jogoSelecionado];
+    } else {
+        // Se alguém tentar abrir um jogo que não existe, mostra um erro ou link padrão
+        iframeDoJogo.src = "https://link-de-um-jogo-padrao.com"; 
+    }
+</script>
+
+</body>
+</html>

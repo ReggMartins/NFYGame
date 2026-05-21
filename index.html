@@ -3,67 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css\style.css">
-    <title>Meu Portal de Jogos</title>
+    <title>GFY Games - Catálogo</title>
     
+    <link rel="stylesheet" type="text/css" href="css\style01.css">
 
 </head>
 <body>
 
-    <h1>Aventura Espacial</h1>
+    <!-- CABEÇALHO -->
+    <header>
+        <!-- Troque logo.png pelo nome do arquivo do seu logotipo -->
+        <img src="img\nfy.png" alt="NFY Games Logo">
+        <h1>NFY GAMES</h1>
+    </header>
 
-    <div class="layout-grid">
+    <!-- LAYOUT PRINCIPAL -->
+    <div class="main-layout">
         
-        <!-- 1. ANÚNCIO DO TOPO -->
-        <div class="ad-container ad-top">
-            <!-- Cole o código <script> do AdSense ou da plataforma aqui -->
-            Anúncio Topo<br>(728 x 90)
-        </div>
+        <!-- BARRA ESQUERDA (3 Anúncios) -->
+        <aside class="ad-sidebar">
+            <div class="ad-slot">Anúncio Esq 1<br>(160x300)</div>
+            <div class="ad-slot">Anúncio Esq 2<br>(160x300)</div>
+            <div class="ad-slot">Anúncio Esq 3<br>(160x300)</div>
+        </aside>
 
-        <!-- 2. ANÚNCIO LATERAL ESQUERDA -->
-        <div class="ad-container ad-left">
-            Anúncio Esquerda<br>(160 x 600)
-        </div>
-
-        <!-- 3. O JOGO AO CENTRO -->
-        <div class="game-container">
+        <!-- CENTRO: CATÁLOGO DE JOGOS -->
+        <main class="game-catalog">
             
-            <iframe src="https://play.gamepix.com/strike-galaxy-attack/embed?sid=911Y9" width="800" height="600" frameborder="0" scrolling="no" allowfullscreen="true" > </iframe>
-            
-            <center>
-                <button id="btnTelaCheia" onclick="abrirTelaCheia()">🔲 Jogar em Tela Cheia</button>
-            </center>
+            <!-- Jogo 1 -->
+            <a href="game.html?id=strike" class="game-card">
+                <img src="img\jogo01.png" alt="Miniatura Jogo 1" class="game-thumb">
+                <h3 class="game-title">Galaxy Attack</h3>
+            </a>
 
-        </div>
+            <!-- Jogo 2 -->
+            <a href="game.html?id=tiro" class="game-card">
+                <img src="thumb2.jpg" alt="Miniatura Jogo 2" class="game-thumb">
+                <h3 class="game-title">Defensores da Galáxia</h3>
+            </a>
 
-        <!-- 4. ANÚNCIO LATERAL DIREITA -->
-        <div class="ad-container ad-right">
-            Anúncio Direita<br>(160 x 600)
-        </div>
+            <!-- Jogo 3 (O seu projeto futuro) -->
+            <a href="game.html?id=meujogo2d" class="game-card">
+                <img src="thumb3.jpg" alt="Miniatura Jogo 3" class="game-thumb">
+                <h3 class="game-title">Aventura 2D (Em Breve)</h3>
+            </a>
 
-        <!-- 5. ANÚNCIO DO FUNDO -->
-        <div class="ad-container ad-bottom">
-            Anúncio Fundo<br>(728 x 90)
-        </div>
+            <!-- Jogo 4 -->
+            <a href="game.html?id=puzzle" class="game-card">
+                <img src="thumb4.jpg" alt="Miniatura Jogo 4" class="game-thumb">
+                <h3 class="game-title">Quebra-Cabeça Místico</h3>
+            </a>
+
+        </main>
+
+        <!-- BARRA DIREITA (3 Anúncios) -->
+        <aside class="ad-sidebar">
+            <div class="ad-slot">Anúncio Dir 1<br>(160x300)</div>
+            <div class="ad-slot">Anúncio Dir 2<br>(160x300)</div>
+            <div class="ad-slot">Anúncio Dir 3<br>(160x300)</div>
+        </aside>
 
     </div>
 
-
-<script>
-    function abrirTelaCheia() {
-        // Seleciona o iframe do jogo
-        var jogo = document.querySelector("iframe");
-
-        // Tenta abrir em tela cheia lidando com os diferentes navegadores
-        if (jogo.requestFullscreen) {
-            jogo.requestFullscreen(); // Padrão moderno
-        } else if (jogo.webkitRequestFullscreen) { 
-            jogo.webkitRequestFullscreen(); // Safari e Chrome antigos
-        } else if (jogo.msRequestFullscreen) { 
-            jogo.msRequestFullscreen(); // Internet Explorer/Edge antigos
-        }
-    }
-</script>
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 GFY Games. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="#">GitHub</a>
+            <a href="#">Facebook</a>
+            <a href="#">X (Twitter)</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
 
 </body>
 </html>
